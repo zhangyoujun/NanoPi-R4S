@@ -6,15 +6,16 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Lean OpenWrt
+name: OpenWrt-CI
 
 on:
-  repository_dispatch:
-  workflow_dispatch:
-  schedule:
-    #- cron: 0 4 * * *
-   watch:
-     types: started
+  push:
+    branches: 
+      - master
+  # schedule:
+  #   - cron: 0 20 * * *
+  release:
+    types: [published]
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
